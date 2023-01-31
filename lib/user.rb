@@ -15,11 +15,17 @@ class User
   end
   
   def self.find_by_email(email)
-    # Parcours l'array @@all_users
+    @@all_users.each do |user|
+      if user.email == email
+        return user
+      end
+    end
+    puts "There is no user with this email address"
+    return false
   end
 end
 
-binding.pry
+#binding.pry
 puts 'end of file'
 # julie = User.new("julie@email.com", 32)
 # jean = User.new("jean@email.com", 54)
